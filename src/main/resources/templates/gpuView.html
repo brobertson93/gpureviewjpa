@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" media="all" href="HomepageStyles.css" th:href="@{../HomepageStyle.css}">
+</head>
+<body>
+<nav>
+    <ul>
+        <a href="../../index.html"><li>Home</li></a>
+        <a href="/gpus"><li>GPU List</li></a>
+        <a href="/brands"><li>GPU Brands</li></a>
+    </ul>
+</nav>
+
+<main>
+
+<ul>
+
+    <h2 th:text="${gpu.name}"></h2>
+    <div class ="reviewDisplay">
+        <img  th:src="${gpu.getImageUrl()}">
+    </div>
+    <p th:text="${gpu.description}"></p>
+</ul>
+    <button onclick="goBack()">Go Back</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</main>
+
+
+</body>
+</html>

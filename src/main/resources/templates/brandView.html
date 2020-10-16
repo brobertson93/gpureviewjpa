@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" media="all" href="HomepageStyles.css" th:href="@{../HomepageStyle.css}">
+</head>
+<body>
+<nav>
+    <ul>
+        <a href="../../index.html">
+            <li>Home</li>
+        </a>
+        <a href="/gpus">
+            <li>GPU List</li>
+        </a>
+        <a href="/brands">
+            <li>GPU Brands</li>
+        </a>
+    </ul>
+</nav>
+<main>
+
+    <h1 class="label" th:text="${brand.brand + ' GPUs'}"> </h1>
+    <ul class="gpuDisplay" th:each="gpu:${brand.gpus}">
+        <li><a th:href="@{'/gpus/' + ${gpu.getId()}}" th:text="${gpu.getName()}">GPUs</a></li>
+
+        <li><img th:src="${gpu.getImageUrl()}"/></li>
+
+
+    </ul>
+</main>
+</body>
+</html>
